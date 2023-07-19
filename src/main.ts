@@ -4,6 +4,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createRouter, createWebHistory } from 'vue-router';
 import App from "./App.vue"
+import PrimeVue from 'primevue/config';
 import "./index.css"
 import Home from './views/HomeView.vue';
 import Recipes from './views/RecipesView.vue';
@@ -16,4 +17,4 @@ const router = createRouter({
     ]
   });
 
-createApp(App).use(createPinia()).use(router).mount('#app')
+createApp(App).use(createPinia()).use(router).use(PrimeVue).mount('#app')

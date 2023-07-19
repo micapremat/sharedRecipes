@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import type { Category } from '@/types/Category';
 import AppButton from './AppButton.vue'
 import RecipesBodyListItem from './RecipesBodyListItem.vue';
 import { ref } from 'vue'
 
 const props = defineProps<{
-  title: string
-  list: Array<{name: string, selected: boolean}>
+  title: string;
+  list: Category[];
 }>()
 
 const list = ref(props.list)
