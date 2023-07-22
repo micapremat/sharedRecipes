@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import AppButton from './AppButton.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
+import CreateAccount from './CreateAccount.vue';
+
+const createAccount = ref(false)
 </script>
 
 <template>
@@ -16,9 +20,10 @@ import EcosystemIcon from './icons/IconEcosystem.vue'
         <router-link to="/recipes" class="mx-2 hover:bg-transparent">
           <AppButton :rounded="true" :outline="true" :text="'Recipies'" />
         </router-link>
-        <router-link to="#/" class="mx-2 hover:bg-transparent">
-          <AppButton :rounded="true" :outline="true" :text="'Create Account'" />
-        </router-link>
+        <div class="mx-2 hover:bg-transparent inline-block">
+          <AppButton :rounded="true" :outline="true" :text="'Create Account'" @click="createAccount = true"/>
+          <CreateAccount v-if="createAccount" @close="createAccount = false"/>
+        </div>
         <router-link to="#/" class="mx-2 hover:bg-transparent">
           <AppButton :rounded="true" :outline="true" :text="'Login'" />
         </router-link>

@@ -26,7 +26,7 @@ const openModal = () => {
     </div>
 
     <div class="mb-24">
-      <carousel :items-to-show="7.5" :wrap-around="true">
+      <carousel :items-to-show="6.5" :wrap-around="true">
         <slide v-for="slide in 10" :key="slide">
           <div  @click="openModal()" class=" cursor-pointer">
             <img src="@/assets/imgs/buddhaBowl.jpg" class="h-[300px] block" />
