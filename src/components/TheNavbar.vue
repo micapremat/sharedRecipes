@@ -3,8 +3,10 @@ import { ref } from 'vue';
 import AppButton from './AppButton.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
 import CreateAccount from './CreateAccount.vue';
+import Login from './Login.vue';
 
 const createAccount = ref(false)
+const login = ref(false)
 </script>
 
 <template>
@@ -24,9 +26,10 @@ const createAccount = ref(false)
           <AppButton :rounded="true" :outline="true" :text="'Create Account'" @click="createAccount = true"/>
           <CreateAccount v-if="createAccount" @close="createAccount = false"/>
         </div>
-        <router-link to="#/" class="mx-2 hover:bg-transparent">
-          <AppButton :rounded="true" :outline="true" :text="'Login'" />
-        </router-link>
+        <div class="mx-2 hover:bg-transparent inline-block">
+          <AppButton :rounded="true" :outline="true" :text="'Login'" @click="login = true"/>
+          <Login v-if="login" @close="login = false"/>
+        </div>
       </div>
     </nav>
   </div>

@@ -73,7 +73,7 @@ const openModal = () => {
         <AppButton
           :rounded="true"
           :text="'Cancel'"
-          @click="isOpen = false"
+          @click="$emit('close')"
           class="bg-cyan-800 text-white my-8 py-2 mx-5"
         />
         <AppButton
