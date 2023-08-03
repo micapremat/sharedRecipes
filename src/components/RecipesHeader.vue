@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheNavbar from './TheNavbar.vue'
-import AppSearchBar from './AppSearchBar.vue';
+import BaseSearchBar from './BaseSearchBar.vue';
 import { ref } from 'vue';
 
 const search = ref('')
@@ -12,7 +12,7 @@ const search = ref('')
     <div class="text-center my-28">
       <h1 class="text-white font-['Bebas_Neue'] text-6xl my-7">Are you looking for a recipe?</h1>
       <div class="max-w-2xl m-auto">
-        <AppSearchBar :search="search"/>
+        <BaseSearchBar :search="search"/>
       </div>
       <p class="text-white mt-2">You can find your recipe by name, author or category</p>
     </div>

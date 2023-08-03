@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppStarRaiting from './AppStarRating.vue'
+import BaseStarRating from './BaseStarRating.vue'
 </script>
 
 <template>
@@ -13,7 +13,7 @@ import AppStarRaiting from './AppStarRating.vue'
     <h1 class="text-2xl font-bold text-end">Red velvet cupcake - By Osvaldo Gross</h1>
     <h2 class="text-lg font-bold text-end">User Kevin Coscarelli</h2>
     <div class="justify-end flex">
-        <AppStarRaiting :maxPoints="5" :points="4.6" />
+        <BaseStarRating :maxPoints="5" :points="4.6" />
     </div>
     <div class="grid grid-cols-4 gap-4 mt-4">
       <div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppButton from './AppButton.vue'
+import BaseButton from './BaseButton.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
 import CreateAccount from './CreateAccount.vue';
 import Login from './Login.vue';
@@ -17,17 +17,17 @@ const login = ref(false)
       </div>
       <div>
         <router-link to="/" class="mx-2 hover:bg-transparent">
-          <AppButton :rounded="true" :outline="true" :text="'Home'" />
+          <BaseButton :rounded="true" :outline="true" :text="'Home'" />
         </router-link>
         <router-link to="/recipes" class="mx-2 hover:bg-transparent">
-          <AppButton :rounded="true" :outline="true" :text="'Recipies'" />
+          <BaseButton :rounded="true" :outline="true" :text="'Recipies'" />
         </router-link>
         <div class="mx-2 hover:bg-transparent inline-block">
-          <AppButton :rounded="true" :outline="true" :text="'Create Account'" @click="createAccount = true"/>
+          <BaseButton :rounded="true" :outline="true" :text="'Create Account'" @click="createAccount = true"/>
           <CreateAccount v-if="createAccount" @close="createAccount = false"/>
         </div>
         <div class="mx-2 hover:bg-transparent inline-block">
-          <AppButton :rounded="true" :outline="true" :text="'Login'" @click="login = true"/>
+          <BaseButton :rounded="true" :outline="true" :text="'Login'" @click="login = true"/>
           <Login v-if="login" @close="login = false"/>
         </div>
       </div>

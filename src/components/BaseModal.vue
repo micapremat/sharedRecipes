@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AppButton from './AppButton.vue'
+import BaseButton from './BaseButton.vue'
 const props = withDefaults(
   defineProps<{
     header?: string

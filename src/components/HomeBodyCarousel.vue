@@ -2,9 +2,9 @@
 import { ref } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import AppStarRating from './AppStarRating.vue'
-import AppModal from './AppModal.vue'
-import AppButton from './AppButton.vue'
+import BaseStarRating from './BaseStarRating.vue'
+import BaseModal from './BaseModal.vue'
+import BaseButton from './BaseButton.vue'
 
 const props = defineProps<{
   title?: string
@@ -32,7 +32,7 @@ const openModal = () => {
             <img src="@/assets/imgs/buddhaBowl.jpg" class="h-[300px] block" />
             <p class="text-left">Buddha Bowl by Jeanine and Jack</p>
             <p class="text-left">User: John Marino</p>
-            <AppStarRating :max-points="5" :points="2" />
+            <BaseStarRating :max-points="5" :points="2" />
           </div>
         </slide>
 
@@ -42,12 +42,12 @@ const openModal = () => {
         </template>
       </carousel>
     </div>
-    <AppModal v-if="isOpen" @close="isOpen = false">
+    <BaseModal v-if="isOpen" @close="isOpen = false">
       <template v-slot:header>
         <div>
           <p class="font-['Pacifico']">Jeanine and Jack</p>
           <h1 class="font-['Bebas_Neue'] text-5xl">Buddha Bowl</h1>
-          <AppStarRating :max-points="5" :points="2" class="justify-center"></AppStarRating>
+          <BaseStarRating :max-points="5" :points="2" class="justify-center"></BaseStarRating>
         </div>
       </template>
       <template v-slot:body>
@@ -138,9 +138,9 @@ const openModal = () => {
         </p>
       </template>
       <template v-slot:footer>
-        <AppButton :rounded="true" :text="'Close'" @click="isOpen = false" class="bg-cyan-800 text-white my-8 py-2"/>
+        <BaseButton :rounded="true" :text="'Close'" @click="isOpen = false" class="bg-cyan-800 text-white my-8 py-2"/>
       </template>
-    </AppModal>
+    </BaseModal>
   </div>
 </template>
 <style>
