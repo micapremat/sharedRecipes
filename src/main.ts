@@ -8,12 +8,14 @@ import PrimeVue from 'primevue/config';
 import "./index.css"
 import Home from './views/HomeView.vue';
 import Recipes from './views/RecipesView.vue';
+import Profile from './views/ProfileView.vue';
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
       { path: '/', component: Home },
       { path: '/recipes', component: Recipes },
+      { path: '/profile', component: Profile },
     ]
   });
 

@@ -15,7 +15,9 @@ export async function register(user: UserRegister, url: string): Promise<Respons
       if (!response.ok) {
         throw new Error('Login failed. Please try again.');
       }
-      return response;
+      const responseData = await response.json();
+      console.log(responseData)
+      return responseData;
     } catch (error) {
       throw new Error('Login failed. Please try again.');
     }

@@ -12,7 +12,7 @@ const search = ref('')
     <div class="text-center my-28">
       <h1 class="text-white font-['Bebas_Neue'] text-6xl my-7">Are you looking for a recipe?</h1>
       <div class="max-w-2xl m-auto">
-        <BaseSearchBar :search="search"/>
+        <BaseSearchBar :search="search" :selector="true"/>
       </div>
       <p class="text-white mt-2">You can find your recipe by name, author or category</p>
     </div>

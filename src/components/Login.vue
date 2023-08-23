@@ -3,17 +3,19 @@ import { onMounted, ref } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
 import BaseModal from './BaseModal.vue'
 import BaseButton from './BaseButton.vue'
-import IconEcosystem from './icons/IconEcosystem.vue'
+import { authStore } from '@/stores/auth'
 import type { UserLogin } from '@/types/UserLogin'
 import BaseAlert from './BaseAlert.vue'
 import type { AlertType } from '@/types/AlertType'
 import { login } from './services/Login.service'
 
+
 const props = defineProps<{
   title?: string
 }>()
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close']);
+const auth = authStore();
 
 const openAlert = ref(false)
 const alertType = ref<AlertType>('success')
@@ -26,8 +28,14 @@ const user = ref<UserLogin>({
 const loginUser = (async () => {
   try {
     const response: Response = await login(user.value, 'auth/login')
+    const data = await response.json();
     if(response.ok) {
-        emit('close')
+      emit('close')
+      if (data) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('loggedUser', user.value.username);
+        auth.setLoggedUser()
+      }
     }
   } catch (error) {
     console.log(error)
@@ -68,8 +76,9 @@ const loginUser = (async () => {
         />
         <BaseButton
           :rounded="true"
-          :text="'Create account'"
-          @click="loginUser()"
+          :text="'Login'"
+          @click.prevent="loginUser()"
+          @keydown.enter="loginUser()"
           class="bg-cyan-800 text-white my-8 py-2 mx-5"
         />
       </div>
